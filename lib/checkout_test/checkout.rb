@@ -1,6 +1,10 @@
 module CheckoutTest
-  class Checkout
+  class Checkout < Struct.new(:pricing_rules)
     include Enumerable
+
+    def initialize(pricing_rules = [])
+      super
+    end
 
     def each(*args, &block)
       products.each(*args, &block)
@@ -11,7 +15,11 @@ module CheckoutTest
     end
 
     def total
-      map(&:price).inject(0, &:+)
+      map(&:price).inject(0, &:+) - discount
+    end
+
+    def discount
+      pricing_rules.map(&:discount).inject(0, &:+)
     end
 
     private
