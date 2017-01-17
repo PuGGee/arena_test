@@ -1,3 +1,6 @@
+require 'simplecov'
+SimpleCov.start
+
 require 'yaml'
 require 'pry-byebug'
 require './lib/checkout_test/models/product'
