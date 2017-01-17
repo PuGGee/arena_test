@@ -1,7 +1,6 @@
 require './spec/test_helper'
 
 require './lib/checkout_test/checkout'
-require './lib/checkout_test/models/product'
 
 describe CheckoutTest::Checkout do
 
